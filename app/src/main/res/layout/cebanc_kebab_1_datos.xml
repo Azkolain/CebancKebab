@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cebanc_kebab_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.alumno.cebanckebab.CebancKebabMainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBienvenido"
+        android:textSize="30sp"
+        android:id="@+id/textBienvenido"
+        android:layout_marginBottom="10sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textDatos"
+        android:textSize="20sp"
+        android:id="@+id/textDatos"
+        android:layout_marginBottom="40sp"
+        android:layout_below="@id/textBienvenido"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textNombre"
+            android:textSize="20sp"
+            android:id="@+id/textNombre"
+            android:layout_marginBottom="15sp"
+            android:layout_below="@id/textDatos"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editNombre"
+            android:layout_toRightOf="@id/textNombre"
+            android:layout_below="@id/textDatos"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textDireccion"
+            android:textSize="20sp"
+            android:id="@+id/textDireccion"
+            android:layout_marginBottom="15sp"
+            android:layout_below="@id/textNombre"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editDireccion"
+            android:layout_toRightOf="@id/textDireccion"
+            android:layout_below="@id/textNombre"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textTelefono"
+            android:textSize="20sp"
+            android:id="@+id/textTelefono"
+            android:layout_marginBottom="25sp"
+            android:layout_below="@id/textDireccion"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/editTelefono"
+            android:layout_toRightOf="@id/textTelefono"
+            android:layout_below="@id/textDireccion"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:text="@string/buttonSalir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonSalir"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:text="@string/buttonSiguiente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonSiguiente"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+</RelativeLayout>

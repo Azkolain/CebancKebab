@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CebancKebab</string>
+
+    <string name="textTitulo">CEBANC KEBAB</string>
+    <string name="textContacto">666666666</string>
+    <string name="buttonIniciar">Iniciar</string>
+
+    <string name="textBienvenido">¡Bienvenido!</string>
+    <string name="textDatos">Introduce a continuación tus datos</string>
+    <string name="textNombre">Nombre: </string>
+    <string name="textDireccion">Dirección: </string>
+    <string name="textTelefono">Teléfono: </string>
+    <string name="buttonSalir">Salir</string>
+    <string name="buttonSiguiente">Siguiente</string>
+
+    <string name="textTamaino">Tamaño</string>
+    <string name="textTipoCarne">Tipo de Carne</string>
+</resources>
