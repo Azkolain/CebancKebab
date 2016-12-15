@@ -91,6 +91,12 @@
                 android:id="@+id/textView6"
                 android:textSize="18sp" />
 
+            <Button
+                android:text="@string/buttonSalir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button3" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -137,6 +143,12 @@
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editText6" />
+
+            <Button
+                android:text="@string/buttonSiguiente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button5" />
         </LinearLayout>
 
     </LinearLayout>
