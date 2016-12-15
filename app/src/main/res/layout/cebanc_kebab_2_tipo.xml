@@ -1,18 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
 
-    <TextView
-        android:text="@string/textTamaino"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textTamaño" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/layoutTotal">
 
-    <TextView
-        android:text="@string/textTipoCarne"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textTipoCarne" />
-</LinearLayout>
+        <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:id="@+id/layoutTamaino"
+            android:layout_weight="1">
+
+            <TextView
+               android:text="@string/textTamaino"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textSize="20sp"
+               android:id="@+id/textTamaino"
+               android:layout_weight="1"
+                android:gravity="center_vertical"/>
+
+           <TextView
+               android:text="@string/textTipoCarne"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textSize="20sp"
+               android:id="@+id/textTipoCarne"
+               android:layout_weight="1"
+               android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:id="@+id/layoutTipo"
+           android:layout_toRightOf="@id/layoutTamaino"
+            android:layout_weight="1">
+
+
+
+           <Spinner
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/spinnerTipo"
+               android:entries="@array/tipo"
+               android:layout_toRightOf="@id/textTipoCarne"
+               android:layout_weight="1"/>
+
+           <Spinner
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/spinnerTamaino"
+               android:entries="@array/tamaino"
+               android:layout_toRightOf="@id/textTamaino"
+               android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
