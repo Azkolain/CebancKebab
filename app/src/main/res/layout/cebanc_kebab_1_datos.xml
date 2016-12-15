@@ -5,105 +5,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="com.alumno.cebanckebab.CebancKebabMainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textBienvenido"
-        android:textSize="30sp"
-        android:id="@+id/textBienvenido"
-        android:layout_marginBottom="10sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textDatos"
-        android:textSize="20sp"
-        android:id="@+id/textDatos"
-        android:layout_marginBottom="40sp"
-        android:layout_below="@id/textBienvenido"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textNombre"
-            android:textSize="20sp"
-            android:id="@+id/textNombre"
-            android:layout_marginBottom="15sp"
-            android:layout_below="@id/textDatos"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editNombre"
-            android:layout_toRightOf="@id/textNombre"
-            android:layout_below="@id/textDatos"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textDireccion"
-            android:textSize="20sp"
-            android:id="@+id/textDireccion"
-            android:layout_marginBottom="15sp"
-            android:layout_below="@id/textNombre"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editDireccion"
-            android:layout_toRightOf="@id/textDireccion"
-            android:layout_below="@id/textNombre"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textTelefono"
-            android:textSize="20sp"
-            android:id="@+id/textTelefono"
-            android:layout_marginBottom="25sp"
-            android:layout_below="@id/textDireccion"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:ems="10"
-            android:id="@+id/editTelefono"
-            android:layout_toRightOf="@id/textTelefono"
-            android:layout_below="@id/textDireccion"
-            />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true">
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
 
-            <Button
-                android:text="@string/buttonSalir"
+            <TextView
+                android:id="@+id/textBienvenido"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonSalir"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                />
+                android:text="@string/textBienvenido"
+                android:textSize="30sp"
+                android:gravity="center_vertical"/>
 
-            <Button
-                android:text="@string/buttonSiguiente"
+            <TextView
+                android:id="@+id/textDatos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonSiguiente"
-                android:layout_weight="1"/>
+                android:layout_height="match_parent"
+                android:layout_below="@id/textBienvenido"
+                android:layout_weight="1"
+                android:text="@string/textDatos"
+                android:gravity="center_vertical"
+                android:textSize="20sp" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/textNombre"
+                    android:textSize="20sp"
+                    android:id="@+id/textNombre"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/textDireccion"
+                    android:textSize="20sp"
+                    android:id="@+id/textDireccion"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/textTelefono"
+                    android:textSize="20sp"
+                    android:id="@+id/textTelefono"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/buttonSalir"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/buttonSalir" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editNombre"
+                    android:layout_weight="1"/>/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editDireccion"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/editTelefono"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/buttonSiguiente"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/buttonSiguiente" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

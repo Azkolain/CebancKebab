@@ -3,181 +3,191 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <LinearLayout
+        android:id="@+id/layoutTotal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:id="@+id/layoutTotal">
+        android:orientation="horizontal">
 
         <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical"
-           android:id="@+id/layoutTamaino"
-            android:layout_weight="1">
+            android:id="@+id/layoutTamaino"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-               android:text="@string/textTamaino"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:textSize="20sp"
-               android:id="@+id/textTamaino"
-               android:layout_weight="1"
-                android:gravity="center_vertical"/>
-
-           <TextView
-               android:text="@string/textTipoCarne"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:textSize="20sp"
-               android:id="@+id/textTipoCarne"
-               android:layout_weight="1"
-               android:gravity="center_vertical"/>
-
-            <TextView
-                android:text="Cantidades"
+                android:id="@+id/textTamaino"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/textTamaino"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textTipoCarne"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/textTipoCarne"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/textCantidades"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="Cantidades"
+                android:textSize="20sp" />
 
             <TextView
-                android:text="Döner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
                 android:id="@+id/textDoner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="Döner"
+                android:textSize="20sp" />
 
             <TextView
-                android:text="Dürum"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
                 android:id="@+id/textDurum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="Dürum"
+                android:textSize="20sp" />
 
             <TextView
-                android:text="Lahmacum"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
                 android:id="@+id/textLahmacum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="Lahmacum"
+                android:textSize="20sp" />
 
             <TextView
-                android:text="Shawarma"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
                 android:id="@+id/textShawarma"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="Shawarma"
+                android:textSize="20sp" />
 
             <TextView
-                android:text="Gyros"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
                 android:id="@+id/textGyros"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="Gyros"
+                android:textSize="20sp" />
 
-
+            <Button
+                android:id="@+id/buttonSalir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/buttonSalir" />
 
         </LinearLayout>
 
         <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical"
-           android:id="@+id/layoutTipo"
-           android:layout_toRightOf="@id/layoutTamaino"
-            android:layout_weight="1">
+            android:id="@+id/layoutTipo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/layoutTamaino"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
 
+            <Spinner
+                android:id="@+id/spinnerTipo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/tipo"
+                android:textSize="20sp" />
 
-           <Spinner
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:id="@+id/spinnerTipo"
-               android:entries="@array/tipo"
-               android:textSize="20sp"
-               android:layout_weight="1"/>
+            <Spinner
+                android:id="@+id/spinnerTamaino"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/tamaino"
 
-           <Spinner
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:id="@+id/spinnerTamaino"
-               android:entries="@array/tamaino"
-               android:textSize="20sp"
-
-               android:layout_weight="1"/>
+                android:textSize="20sp" />
 
             <TextView
-                android:text="VACIOOOO"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
                 android:id="@+id/textVacio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:text="VACIOOOO"
+                android:textSize="20sp" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:ems="10"
                 android:id="@+id/editDoner"
-                android:layout_weight="1" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number" />
+
+            <EditText
                 android:id="@+id/editDurum"
-                android:layout_weight="1" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number" />
+
+            <EditText
                 android:id="@+id/editLahmacum"
-                android:layout_weight="1" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number" />
+
+            <EditText
                 android:id="@+id/editShawarma"
-                android:layout_weight="1" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:layout_weight="1"
                 android:ems="10"
+                android:inputType="number" />
+
+            <EditText
                 android:id="@+id/editGyros"
-                android:layout_weight="1" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/buttonSiguiente"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/buttonSiguiente" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </RelativeLayout>
