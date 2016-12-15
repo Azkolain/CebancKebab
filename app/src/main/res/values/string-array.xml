@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <string-array name=""
 
 
 
 
+=======
+    <string-array name="tamaino">
+        <item>Normal</item>
+        <item>Completo</item>
+    </string-array>
+
+    <string-array name="tipo">
+        <item>Cordero</item>
+        <item>Ternera</item>
+        <item>Pollo</item>
+    </string-array>
+>>>>>>> origin/master
 </resources>
