@@ -16,5 +16,10 @@
     <string name="textTamaino">Tamaño</string>
     <string name="textTipoCarne">Tipo de Carne</string>
 
-    <string name="textPRUEBA">THOJASFAe</string>
+    <string name="textCola">Coca-Cola</string>
+    <string name="textLimon">Kas Limón</string>
+    <string name="textNaranja">Kas Naranja</string>
+    <string name="textNestea">Nestea</string>
+    <string name="textCerveza">Cerveza</string>
+    <string name="textAgua">Agua</string>
 </resources>

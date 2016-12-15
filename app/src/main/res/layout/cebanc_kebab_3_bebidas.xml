@@ -18,7 +18,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:text="TextView"
+                android:text="@string/textCola"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -31,7 +31,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:text="TextView"
+                android:text="@string/textLimon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -43,7 +43,7 @@
                 android:id="@+id/textView2"
                 android:textSize="18sp" />
             <TextView
-                android:text="TextView"
+                android:text="@string/textNaranja"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -55,7 +55,7 @@
                 android:id="@+id/textView3"
                 android:textSize="18sp" />
             <TextView
-                android:text="TextView"
+                android:text="@string/textNestea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -67,7 +67,7 @@
                 android:id="@+id/textView4"
                 android:textSize="18sp" />
             <TextView
-                android:text="TextView"
+                android:text="@string/textCerveza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -79,7 +79,7 @@
                 android:id="@+id/textView5"
                 android:textSize="18sp" />
             <TextView
-                android:text="TextView"
+                android:text="@string/textAgua"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -123,12 +123,14 @@
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editText4" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editText5" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
