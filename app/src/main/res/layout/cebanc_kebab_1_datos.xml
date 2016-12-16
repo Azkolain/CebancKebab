@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_cebanc_kebab_main"
     android:layout_width="match_parent"
@@ -15,7 +15,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,13 +84,6 @@
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <Button
-                    android:id="@+id/buttonSalir"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/buttonSalir" />
-
 
             </LinearLayout>
 
@@ -123,17 +117,32 @@
                     android:id="@+id/editTelefono"
                     android:layout_weight="1"/>
 
-                <Button
-                    android:id="@+id/buttonSiguiente"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/buttonSiguiente" />
-
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="8">
+
+        <Button
+            android:id="@+id/buttonSalir"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/buttonSalir" />
+
+        <Button
+            android:id="@+id/buttonSiguiente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/buttonSiguiente" />
+
+    </LinearLayout>
+
+</LinearLayout>
