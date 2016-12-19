@@ -9,25 +9,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class CebancKebabMainActivity extends AppCompatActivity {
     private GoogleMap mapa;
+    private FirstMapFragment mFirstMapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cebanc_kebab_main);
-
         getSupportActionBar().setBackgroundDrawable(
                 new ColorDrawable(Color.parseColor("#088A08")));
 
+        mFirstMapFragment = FirstMapFragment.newInstance();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.map, mFirstMapFragment)
+                .commit();
 
+    }
+        public void onMapReady(GoogleMap googleMap) {
+        LatLng cali = new LatLng(3.4383, -76.5161);
+        googleMap.addMarker(new MarkerOptions()
+                .position(cali)
+                .title("Cali la Sucursal del cielo"));
 
+        CameraPosition cameraPosition = CameraPosition.builder()
+                .target(cali)
+                .zoom(10)
+                .build();
 
-
+        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
     public void onClickSalir(View view) {
