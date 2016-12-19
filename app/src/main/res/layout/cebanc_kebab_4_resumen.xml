@@ -43,18 +43,18 @@
         android:layout_weight="8">
 
         <Button
-            android:id="@+id/buttonSalir"
+            android:id="@+id/buttonCancelar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonSalir" />
+            android:text="@string/buttonCancelar" />
 
         <Button
-            android:id="@+id/buttonSiguiente"
+            android:id="@+id/buttonAceptar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonSiguiente" />
+            android:text="@string/buttonAceptar" />
 
     </LinearLayout>
 

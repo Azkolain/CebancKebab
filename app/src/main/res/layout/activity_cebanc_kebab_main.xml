@@ -34,11 +34,7 @@
             android:text="@string/textContacto"
             android:textSize="20sp" />
 
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.MapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+
 
     </LinearLayout>
 
@@ -53,14 +49,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonSalir" />
+            android:text="@string/buttonSalir"
+            android:onClick="onClickSalir"/>
 
         <Button
             android:id="@+id/buttonIniciar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonIniciar" />
+            android:text="@string/buttonIniciar"
+            android:onClick="onClickSiguiente"/>
 
     </LinearLayout>
 

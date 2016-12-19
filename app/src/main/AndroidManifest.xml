@@ -15,6 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity_1_datos"
+            android:label="@string/app_name_datos"/>
+        <activity android:name=".activity_2_tipo"
+            android:label="@string/app_name_tipo"/>
+        <activity android:name=".activity_3_bebidas"
+            android:label="@string/app_name_bebidas"/>
+        <activity android:name=".activity_4_resumen"
+            android:label="@string/app_name_resumen"/>
     </application>
 
 </manifest>
