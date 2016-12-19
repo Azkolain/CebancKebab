@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
@@ -34,6 +35,7 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
 
         // Registrar escucha onMapReadyCallback
         mFirstMapFragment.getMapAsync(this);
+
     }
 
     public void onMapReady(GoogleMap googleMap) {

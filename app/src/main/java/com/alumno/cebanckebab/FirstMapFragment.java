@@ -22,8 +22,7 @@ public class FirstMapFragment extends SupportMapFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View root = super.onCreateView(inflater, container, savedInstanceState);
 
         return root;
