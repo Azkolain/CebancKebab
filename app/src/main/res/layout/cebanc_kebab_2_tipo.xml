@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cebanc_kebab_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.alumno.cebanckebab.CebancKebabMainActivity">
+
 
     <LinearLayout
-        android:id="@+id/layoutTotal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/layoutTamaino"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textTamaino"
@@ -31,6 +34,24 @@
                 android:text="@string/textTamaino"
                 android:textSize="20sp" />
 
+            <Spinner
+                android:id="@+id/spinnerTipo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/tipo"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTipoCarne"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/textTipoCarne"
                 android:layout_width="match_parent"
@@ -40,164 +61,250 @@
                 android:text="@string/textTipoCarne"
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textCantidades"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Cantidades"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textDoner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Döner"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textDurum"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Dürum"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textLahmacum"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Lahmacum"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textShawarma"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Shawarma"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textGyros"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="Gyros"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutTipo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@id/layoutTamaino"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-
-            <Spinner
-                android:id="@+id/spinnerTipo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:entries="@array/tipo"
-                android:textSize="20sp" />
-
             <Spinner
                 android:id="@+id/spinnerTamaino"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:entries="@array/tamaino"
-
                 android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textVacio"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="VACIOOOO"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/editDoner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />
-
-            <EditText
-                android:id="@+id/editDurum"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />
-
-            <EditText
-                android:id="@+id/editLahmacum"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />
-
-            <EditText
-                android:id="@+id/editShawarma"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />
-
-            <EditText
-                android:id="@+id/editGyros"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />
-
-
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layoutKebab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16sp"
+            android:layout_marginTop="16sp">
+
+            <LinearLayout
+                android:id="@+id/layoutNombreKebab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textDoner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Döner"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/textDurum"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Dürum"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textLahmacum"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Lahmacum"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textShawarma"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Shawarma"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textGyros"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Gyros"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutCantidadKebab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editDoner"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editDurum"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editLahmacum"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editShawarma"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editGyros"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBotonesMenos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosDoner"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosDurum"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosLahmacum"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosShawarma"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosGyros"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBotonesMas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasDoner"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasDurum"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasLahmacum"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasShawarma"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasGyros"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="8">
+        android:layout_weight="8"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonSalir"
+            android:id="@+id/buttonCancelar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onClickSalir"
-            android:text="@string/buttonSalir" />
+            android:text="@string/buttonCancelar" />
 
         <Button
-            android:id="@+id/buttonSiguiente"
+            android:id="@+id/buttonAceptar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onClickSiguiente"
-            android:text="@string/buttonSiguiente" />
+            android:text="@string/buttonAceptar" />
 
     </LinearLayout>
 

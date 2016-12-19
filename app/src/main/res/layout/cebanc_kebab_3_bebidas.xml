@@ -18,128 +18,250 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="1">
+
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/layoutBebida"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_weight="0.3"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16sp">
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/layoutNombreBebida"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="0.6"
+                android:orientation="vertical">
 
                 <TextView
-                    android:text="@string/textCola"
+                    android:id="@+id/textCocaCola"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:id="@+id/textView"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical"
+                    android:text="Coca-cola"
+                    android:textSize="20sp" />
+
 
                 <TextView
-                    android:text="@string/textLimon"
+                    android:id="@+id/textKasLimon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:id="@+id/textView2"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
-                <TextView
-                    android:text="@string/textNaranja"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/textView3"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
-                <TextView
-                    android:text="@string/textNestea"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/textView4"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
-                <TextView
-                    android:text="@string/textCerveza"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/textView5"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
-                <TextView
-                    android:text="@string/textAgua"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/textView6"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical"
+                    android:text="Kas Limón"
+                    android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/textKasNaranja"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Kas Naranja"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textNestea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Nestea"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textCerveza"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Cerveza"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textAgua"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Agua"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/layoutCantidadBebida"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editText2" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editText3" />
+                    android:id="@+id/editCocaCola"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText4" />
+                    android:id="@+id/editKasLimon"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText5" />
+                    android:id="@+id/editKasNaranja"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText6" />
+                    android:id="@+id/editNestea"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editCerveza"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editAgua"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBotonesMenos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosCocaCola"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosKasLimon"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosKasNaranja"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosNestea"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosCerveza"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMenosAgua"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBotonesMas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasCocacola"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasKasLimon"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasKasNaranja"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasNestea"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasCerveza"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:text="+"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonMasAgua"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
         </LinearLayout>
+
 
     </LinearLayout>
 
