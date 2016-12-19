@@ -142,52 +142,42 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editDoner"
+                    android:id="@+id/textCantidadDoner"
                     android:text="0"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editDurum"
+                    android:id="@+id/textCantidadDurum"
                     android:text="0"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editLahmacum"
+                    android:id="@+id/textCantidadLahmacum"
                     android:text="0"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editShawarma"
+                    android:id="@+id/textCantidadShawarma"
                     android:text="0"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editGyros"
+                    android:id="@+id/textCantidadGyros"
                     android:text="0"
                     android:gravity="center"
                     android:layout_weight="1"/>
@@ -205,6 +195,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMenosDoner"
+                    android:onClick="onClickMenosDoner"
                     android:layout_weight="1"/>
 
                 <Button
@@ -212,6 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMenosDurum"
+                    android:onClick="onClickMenosDurum"
                     android:layout_weight="1"/>
 
                 <Button
@@ -219,6 +211,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMenosLahmacum"
+                    android:onClick="onClickMenosLahmacum"
                     android:layout_weight="1"/>
 
                 <Button
@@ -226,6 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMenosShawarma"
+                    android:onClick="onClickMenosShawarma"
                     android:layout_weight="1"/>
 
                 <Button
@@ -233,6 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMenosGyros"
+                    android:onClick="onClickMenosGyros"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -248,6 +243,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMasDoner"
+                    android:onClick="onClickMasDoner"
                     android:layout_weight="1"/>
 
                 <Button
@@ -255,6 +251,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMasDurum"
+                    android:onClick="onClickMasDurum"
                     android:layout_weight="1"/>
 
                 <Button
@@ -262,6 +259,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMasLahmacum"
+                    android:onClick="onClickMasLahmacum"
                     android:layout_weight="1"/>
 
                 <Button
@@ -269,6 +267,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMasShawarma"
+                    android:onClick="onClickMasShawarma"
                     android:layout_weight="1"/>
 
                 <Button
@@ -276,6 +275,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/buttonMasGyros"
+                    android:onClick="onClickMasGyros"
                     android:layout_weight="1"/>
 
             </LinearLayout>
@@ -293,18 +293,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonCancelar"
+            android:id="@+id/buttonSalir"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonCancelar" />
+            android:text="@string/buttonSalir"
+            android:onClick="onClickSalir"/>
 
         <Button
-            android:id="@+id/buttonAceptar"
+            android:id="@+id/buttonSiguiente"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonAceptar" />
+            android:text="@string/buttonSiguiente"
+            android:onClick="onClickSiguiente"/>
 
     </LinearLayout>
 
