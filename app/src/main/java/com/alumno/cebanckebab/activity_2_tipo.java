@@ -5,26 +5,31 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 /**
  * Created by adminportatil on 18/12/2016.
  */
 
 public class activity_2_tipo extends AppCompatActivity{
+
+    private ViewFlipper TruitonFlipper;
+    private float initialX;
+
     private String[] informacionUsuario;
 
-    private TextView tCantidadDoner;
-    private TextView tCantidadDurum;
-    private TextView tCantidadLahmacum;
-    private TextView tCantidadShawarma;
-    private TextView tCantidadGyros;
+    private Spinner sTamaino;
+    private Spinner sTipo;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cebanc_kebab_2_tipo);
+
+        //--------------------------------------
 
         getSupportActionBar().setBackgroundDrawable(
                 new ColorDrawable(Color.parseColor("#088A08")));
@@ -32,15 +37,48 @@ public class activity_2_tipo extends AppCompatActivity{
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
 
-        tCantidadDoner = (TextView) findViewById(R.id.textCantidadDoner);
-        tCantidadDurum = (TextView) findViewById(R.id.textCantidadDurum);
-        tCantidadLahmacum = (TextView) findViewById(R.id.textCantidadLahmacum);
-        tCantidadShawarma = (TextView) findViewById(R.id.textCantidadShawarma);
-        tCantidadGyros = (TextView) findViewById(R.id.textCantidadGyros);
+        TruitonFlipper = (ViewFlipper) findViewById(R.id.flipper);
+        TruitonFlipper.setInAnimation(this, android.R.anim.fade_in);
+        TruitonFlipper.setOutAnimation(this, android.R.anim.fade_out);
 
+        sTamaino = (Spinner) findViewById(R.id.spinnerTamaino);
+        sTipo = (Spinner) findViewById(R.id.spinnerTipo);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent touchevent) {
+        switch (touchevent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                initialX = touchevent.getX();
+                break;
+            case MotionEvent.ACTION_UP:
+                float finalX = touchevent.getX();
+                if (initialX > finalX) {
+                    //if (TruitonFlipper.getDisplayedChild() == 1)
+                    //break;
+
+                    TruitonFlipper.setInAnimation(this, R.anim.in_right);
+                    TruitonFlipper.setOutAnimation(this, R.anim.out_left);
+
+                    TruitonFlipper.showNext();
+                } else {
+                    if (initialX < finalX) {
+                        //if (TruitonFlipper.getDisplayedChild() == 0)
+                        //break;
+
+                        TruitonFlipper.setInAnimation(this, R.anim.in_left);
+                        TruitonFlipper.setOutAnimation(this, R.anim.out_right);
+
+                        TruitonFlipper.showPrevious();
+                    }
+                }
+                break;
+        }
+        return false;
     }
 
     public void onClickSalir(View view) {
+
         finish();
     }
 
@@ -49,99 +87,26 @@ public class activity_2_tipo extends AppCompatActivity{
         lanzarActividadBebidas();
     }
 
+    public void onClickMenosProducto(View view){
+
+    }
+
+    public void onClickMasProducto(View view){
+
+    }
+
+    public void onClickAnadir(View view){
+
+    }
+
     public void lanzarActividadBebidas(){
-        int cantidadDoner = Integer.parseInt(tCantidadDoner.getText().toString());
-        int cantidadDurum = Integer.parseInt(tCantidadDurum.getText().toString());
-        int cantidadLahmacum = Integer.parseInt(tCantidadLahmacum.getText().toString());
-        int cantidadShawarma = Integer.parseInt(tCantidadShawarma.getText().toString());
-        int cantidadGyros = Integer.parseInt(tCantidadGyros.getText().toString());
-
-        int[] cantidadesKebab = {cantidadDoner, cantidadDurum, cantidadLahmacum, cantidadShawarma, cantidadGyros};
-
 
         Intent intent = new Intent(this, activity_3_bebidas.class);
         intent.putExtra("informacionUsuario", informacionUsuario);
-        intent.putExtra("cantidadesKebab", cantidadesKebab);
 
         startActivity(intent);
         finish();
     }
-
-    public int sumar(String c){
-        int cantidad = Integer.parseInt(c);
-        cantidad = cantidad + 1;
-        return cantidad;
-    }
-
-    public int restar(String c){
-        int cantidad = Integer.parseInt(c);
-        if(analizar(cantidad)){
-            cantidad = cantidad - 1;
-        }
-        return cantidad;
-    }
-
-    public boolean analizar(int c){
-        int cantidad = c;
-        if(cantidad <= 0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    public void onClickMasDoner(View view){
-        String cantidadCadena = tCantidadDoner.getText().toString();
-        tCantidadDoner.setText(Integer.toString(sumar(cantidadCadena)));
-    }
-
-    public void onClickMasDurum(View view){
-        String cantidadCadena = tCantidadDurum.getText().toString();
-        tCantidadDurum.setText(Integer.toString(sumar(cantidadCadena)));
-    }
-
-    public void onClickMasLahmacum(View view){
-        String cantidadCadena = tCantidadLahmacum.getText().toString();
-        tCantidadLahmacum.setText(Integer.toString(sumar(cantidadCadena)));
-    }
-
-    public void onClickMasShawarma(View view){
-        String cantidadCadena = tCantidadShawarma.getText().toString();
-        tCantidadShawarma.setText(Integer.toString(sumar(cantidadCadena)));
-    }
-
-    public void onClickMasGyros(View view){
-        String cantidadCadena = tCantidadGyros.getText().toString();
-        tCantidadGyros.setText(Integer.toString(sumar(cantidadCadena)));
-    }
-
-
-    public void onClickMenosDoner(View view){
-        String cantidadCadena = tCantidadDoner.getText().toString();
-        tCantidadDoner.setText(Integer.toString(restar(cantidadCadena)));
-    }
-
-    public void onClickMenosDurum(View view){
-        String cantidadCadena = tCantidadDurum.getText().toString();
-        tCantidadDurum.setText(Integer.toString(restar(cantidadCadena)));
-    }
-
-    public void onClickMenosLahmacum(View view){
-        String cantidadCadena = tCantidadLahmacum.getText().toString();
-        tCantidadLahmacum.setText(Integer.toString(restar(cantidadCadena)));
-    }
-
-    public void onClickMenosShawarma(View view){
-        String cantidadCadena = tCantidadShawarma.getText().toString();
-        tCantidadShawarma.setText(Integer.toString(restar(cantidadCadena)));
-    }
-
-    public void onClickMenosGyros(View view){
-        String cantidadCadena = tCantidadGyros.getText().toString();
-        tCantidadGyros.setText(Integer.toString(restar(cantidadCadena)));
-    }
-
-
 
 
 }

@@ -15,6 +15,8 @@ import android.widget.TextView;
 public class activity_3_bebidas extends AppCompatActivity{
     private String[] informacionUsuario;
     private String[] cantidadesKebab;
+    private boolean tamainoCompleta;
+    private String tipoCarne;
 
     private TextView tCantidadCocaCola;
     private TextView tCantidadKasLimon;
@@ -33,6 +35,8 @@ public class activity_3_bebidas extends AppCompatActivity{
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
         cantidadesKebab = extras.getStringArray("cantidadesKebab");
+        tamainoCompleta = extras.getBoolean("tamainoCompleta");
+        tipoCarne = extras.getString("tipoCarne");
 
         tCantidadCocaCola = (TextView) findViewById(R.id.textCantidadCocaCola);
         tCantidadKasLimon = (TextView) findViewById(R.id.textCantidadKasLimon);
@@ -51,7 +55,25 @@ public class activity_3_bebidas extends AppCompatActivity{
     }
 
     public void lanzarActividadResumen(){
+        int cantidadCocaCola = Integer.parseInt(tCantidadCocaCola.getText().toString());
+        int cantidadKasLimon = Integer.parseInt(tCantidadKasLimon.getText().toString());
+        int cantidadKasNaranja = Integer.parseInt(tCantidadKasNaranja.getText().toString());
+        int cantidadNestea = Integer.parseInt(tCantidadNestea.getText().toString());
+        int cantidadCerveza = Integer.parseInt(tCantidadCerveza.getText().toString());
+        int cantidadAgua = Integer.parseInt(tCantidadAgua.getText().toString());
+
+        int[] cantidadesBebidas = {cantidadCocaCola, cantidadKasLimon, cantidadKasNaranja,
+                                    cantidadNestea, cantidadCerveza, cantidadAgua};
+
         Intent intent = new Intent(this, activity_4_resumen.class);
+
+        intent.putExtra("informacionUsuario", informacionUsuario);
+        intent.putExtra("cantidadesKebab", cantidadesKebab);
+        intent.putExtra("tamainoCompleta", tamainoCompleta);
+        intent.putExtra("tipoCarne", tipoCarne);
+        intent.putExtra("cantidadesBebidas", cantidadesBebidas);
+
+
         startActivity(intent);
         finish();
     }
