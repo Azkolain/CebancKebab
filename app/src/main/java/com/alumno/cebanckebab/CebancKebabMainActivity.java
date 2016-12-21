@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,15 +41,18 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
     }
 
     public void onMapReady(GoogleMap googleMap) {
-        LatLng latLng = new LatLng(36.2048, 138.2529);
+        LatLng cebanckebab = new LatLng(43.30469411639206, -2.0168709754943848);
 
-        MarkerOptions markerOptions =
-                new MarkerOptions()
-                        .position(latLng)
-                        .title("Japón")
-                        .snippet("Primer ministro: Shinzō Abe");
+        googleMap.addMarker(new MarkerOptions()
+                        .position(cebanckebab)
+                        .title("Cebanc-Kebab")
+                        .snippet("Berio Pasealekua, San Sebastian"));
+        CameraPosition cameraPosition = CameraPosition.builder()
+                .target(cebanckebab)
+                .zoom(13)
+                .build();
+        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-        Marker marker = googleMap.addMarker(markerOptions);
     }
 
     public void onClickSalir(View view) {
