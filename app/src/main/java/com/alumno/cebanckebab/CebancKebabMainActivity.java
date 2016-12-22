@@ -67,7 +67,7 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
         lanzarActividadDatos();
     }
 
-    public void onClickLlamar (View view){
+    public void onClickLlamar(View view) {
         llamarContacto();
     }
 
@@ -79,15 +79,14 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
 
     public void llamarContacto() {
         Intent intent = new Intent(Intent.ACTION_CALL);
-
         intent.setData(Uri.parse("tel:649606224"));
-
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         startActivity(intent);
     }
-
 }
+
+
 
 
