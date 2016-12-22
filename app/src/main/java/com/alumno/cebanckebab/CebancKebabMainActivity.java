@@ -66,7 +66,10 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
     public void onClickSiguiente(View view) {
         lanzarActividadDatos();
     }
-    public void onClickLlamar(View view){ llamar(); }
+
+    public void onClickLlamar (View view){
+        llamarContacto();
+    }
 
     public void lanzarActividadDatos() {
         Intent intent = new Intent(this, activity_1_datos.class);
@@ -74,13 +77,15 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
         finish();
     }
 
-    public void llamar() {
-        Intent i = new Intent(android.content.Intent.ACTION_CALL,
-                Uri.parse("tel: 649606224"));
+    public void llamarContacto() {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+
+        intent.setData(Uri.parse("tel:649606224"));
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        startActivity(i);
+        startActivity(intent);
     }
 
 }
