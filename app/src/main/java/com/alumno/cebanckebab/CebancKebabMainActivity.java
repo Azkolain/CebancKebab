@@ -3,8 +3,11 @@ package com.alumno.cebanckebab;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +21,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class CebancKebabMainActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class CebancKebabMainActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mapa;
     private FirstMapFragment mFirstMapFragment;
 
@@ -26,8 +29,7 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cebanc_kebab_main);
-        getSupportActionBar().setBackgroundDrawable(
-                new ColorDrawable(Color.parseColor("#088A08")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#088A08")));
 
         mFirstMapFragment = FirstMapFragment.newInstance();
         getSupportFragmentManager()
@@ -44,9 +46,9 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
         LatLng cebanckebab = new LatLng(43.30469411639206, -2.0168709754943848);
 
         googleMap.addMarker(new MarkerOptions()
-                        .position(cebanckebab)
-                        .title("Cebanc-Kebab")
-                        .snippet("Berio Pasealekua, San Sebastian"));
+                .position(cebanckebab)
+                .title("Cebanc-Kebab")
+                .snippet("Berio Pasealekua, San Sebastian"));
         CameraPosition cameraPosition = CameraPosition.builder()
                 .target(cebanckebab)
                 .zoom(13)
@@ -59,14 +61,24 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
         finish();
     }
 
-    public void onClickSiguiente(View view){
+    public void onClickSiguiente(View view) {
         lanzarActividadDatos();
     }
+    public void onClickLlamar(View view){ llamar(); }
 
-    public void lanzarActividadDatos(){
+    public void lanzarActividadDatos() {
         Intent intent = new Intent(this, activity_1_datos.class);
         startActivity(intent);
         finish();
+    }
+
+    public void llamar() {
+        Intent i = new Intent(android.content.Intent.ACTION_CALL,
+                Uri.parse("tel: 649606224"));
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(i);
     }
 
 }

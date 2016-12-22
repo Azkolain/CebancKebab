@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.alumno.cebanckebab">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +13,7 @@
             android:name="com.alumno.cebanckebab.permission.MAPS_RECEIVE"
             android:protectionLevel="signature"/>
         <uses-permission android:name="com.alumno.cebanckebab.permission.MAPS_RECEIVE"/>
+        <uses-permission android:name="com.alumno.cebanckebab.permission.CALL_PHONE"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC8kl8paJL97idUVn9-D4qpnYZ4u2Oljcs" />
