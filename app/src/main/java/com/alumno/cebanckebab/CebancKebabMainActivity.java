@@ -48,12 +48,14 @@ public class CebancKebabMainActivity extends AppCompatActivity implements OnMapR
         googleMap.addMarker(new MarkerOptions()
                 .position(cebanckebab)
                 .title("Cebanc-Kebab")
-                .snippet("Berio Pasealekua, San Sebastian"));
+                .snippet("Berio Pasealekua, San Sebastian"))
+                .showInfoWindow();
         CameraPosition cameraPosition = CameraPosition.builder()
                 .target(cebanckebab)
                 .zoom(13)
                 .build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
 
     }
 
