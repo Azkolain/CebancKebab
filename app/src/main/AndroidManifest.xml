@@ -36,6 +36,9 @@
         <activity android:name=".activity_4_resumen"
             android:label="@string/app_name_resumen"
             android:screenOrientation="portrait"/>
+        <activity android:name=".activity_carrito"
+            android:label="@string/app_name_resumen"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
     </application>
 
 </manifest>
