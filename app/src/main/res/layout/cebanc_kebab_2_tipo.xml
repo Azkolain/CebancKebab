@@ -176,7 +176,7 @@
                         android:background="@drawable/imagen_hamburguesa"/>
 
                     <TextView
-                        android:text="HAMBURGUESA\n\nHamburguesa de carne de pollo, ternera o mixta, lechuga, tomate y cebolla\n\n5,00€"
+                        android:text="HAMBURGUESA\n\nHamburguesa de carne de pollo, ternera o mixta, lechuga, tomate y cebolla\n\n3,00€"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/colorWhite"
@@ -197,10 +197,10 @@
                         android:layout_height="match_parent"
                         android:id="@+id/textNombrePedrata"
                         android:layout_weight="1"
-                        android:background="@drawable/imagen_pedrata"/>
+                        android:background="@drawable/imagen_pedrata3"/>
 
                     <TextView
-                        android:text="PEDRATA\n\nPlato de carne de pollo, ternera o mixta, con patatas y salsa\n\n5,00€"
+                        android:text="PEDRATA\n\nPlato de carne de pollo, ternera o mixta, tomate, lechuga, cebolla, patatas y salsa\n\n5,50€"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/colorWhite"
