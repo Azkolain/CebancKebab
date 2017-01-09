@@ -11,6 +11,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
 /**
  * Created by adminportatil on 18/12/2016.
  */
@@ -21,9 +25,11 @@ public class activity_2_tipo extends AppCompatActivity{
     private float initialX;
 
     private String[] informacionUsuario;
+    private String[][] pedidoProductos = new String[6][5];
 
     private Spinner sTamaino;
     private Spinner sTipo;
+    private TextView tCantidadProducto;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +49,8 @@ public class activity_2_tipo extends AppCompatActivity{
 
         sTamaino = (Spinner) findViewById(R.id.spinnerTamaino);
         sTipo = (Spinner) findViewById(R.id.spinnerTipo);
+        tCantidadProducto = (TextView) findViewById(R.id.editCantidadProducto);
+
     }
 
     @Override
@@ -87,13 +95,6 @@ public class activity_2_tipo extends AppCompatActivity{
         lanzarActividadBebidas();
     }
 
-    public void onClickMenosProducto(View view){
-
-    }
-
-    public void onClickMasProducto(View view){
-
-    }
 
     public void onClickAnadir(View view){
 

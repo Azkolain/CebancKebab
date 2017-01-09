@@ -17,8 +17,8 @@
     <string name="buttonSalir">Salir</string>
     <string name="buttonSiguiente">Siguiente</string>
 
-    <string name="textTamaino">Tamaño</string>
-    <string name="textTipoCarne">Tipo de Carne</string>
+    <string name="textTamaino">Tamaño:</string>
+    <string name="textTipoCarne">Carne:</string>
 
     <string name="textCola">Coca-Cola</string>
     <string name="textLimon">Kas Limón</string>
