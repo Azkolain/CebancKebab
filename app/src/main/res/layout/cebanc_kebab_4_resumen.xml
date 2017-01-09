@@ -42,19 +42,29 @@
         android:orientation="horizontal"
         android:layout_weight="8">
 
-        <Button
-            android:id="@+id/buttonCancelar"
+        <ImageView
+            android:id="@+id/buttonSalir"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonCancelar" />
+            android:src="@drawable/icono_flecha_izquierda"
+            android:onClick="onClickSalir"/>
 
-        <Button
-            android:id="@+id/buttonAceptar"
+        <ImageView
+            android:id="@+id/buttonKebab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonAceptar" />
+            android:src="@drawable/kebab" />
+
+
+        <ImageView
+            android:id="@+id/buttonSiguiente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/tick"
+            android:onClick="onClickSiguiente"/>
 
     </LinearLayout>
 

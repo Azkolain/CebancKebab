@@ -48,22 +48,29 @@
         android:orientation="horizontal"
         android:layout_weight="8">
 
-        <Button
+        <ImageView
             android:id="@+id/buttonSalir"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonSalir"
+            android:src="@drawable/icono_flecha_izquierda"
             android:onClick="onClickSalir"/>
 
-        <Button
-            android:id="@+id/buttonIniciar"
+        <ImageView
+            android:id="@+id/buttonKebab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/buttonIniciar"
-            android:onClick="onClickSiguiente"/>
+            android:src="@drawable/kebab" />
 
+
+        <ImageView
+            android:id="@+id/buttonSiguiente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icono_flecha_derecha"
+            android:onClick="onClickSiguiente"/>
     </LinearLayout>
 
 </LinearLayout>
