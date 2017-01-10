@@ -189,7 +189,7 @@ public class activity_2_tipo extends AppCompatActivity{
         }
     }
     public void anadirProducto(){
-
+        String lineaPedido;
 
         int selectedProducto = TruitonFlipper.getDisplayedChild();
         int selectedTipo = sTipo.getSelectedItemPosition();
@@ -207,8 +207,14 @@ public class activity_2_tipo extends AppCompatActivity{
         String precio = Double.toString(precioDouble);
         String precioTotal = Double.toString(precioTotalDouble);
 
-        listaPedido.add(nombreProducto + ";" + tipoCarne + ";" + tipoTamaino + ";"
-                + precio + ";" + cantidad + ";" + precioTotal);
+        lineaPedido = Integer.toString(selectedProducto) + ";" + Integer.toString(selectedTipo) + ";"
+                + Integer.toString(selectedTamaino) + ";" + Integer.toString(cantidadInt) + ";"
+                + Double.toString(precioDouble) + ";" + Double.toString(precioTotalDouble);
+
+        pedidoSimilar(lineaPedido);
+
+
+
         Log.d("loko", listaPedido.get(0));
 
         Toast toast1 =
@@ -217,6 +223,41 @@ public class activity_2_tipo extends AppCompatActivity{
                                 + " (" + precioTotal + "€) ", Toast.LENGTH_SHORT);
 
         toast1.show();
+    }
+
+    public void pedidoSimilar(String p){
+        boolean continuar = true;
+        String[] lineaPendiente = p.split(";");
+        String pendiente = lineaPendiente[0]+lineaPendiente[1]+lineaPendiente[2];
+        for(int i = 0; i < listaPedido.size() && continuar; i++){
+
+            String linea;
+            linea = listaPedido.get(i);
+
+            String[] lineaExistente = linea.split(";");
+            String existente = lineaExistente[0]+lineaExistente[1]+lineaExistente[2];
+
+            if(pendiente.equals(existente)){
+                int cantidadPendiente = Integer.parseInt(lineaPendiente[3]);
+                int cantidadExistente = Integer.parseInt(lineaExistente[3]);
+                int nuevaCantidad = cantidadPendiente + cantidadExistente;
+                double precioExistente = Double.parseDouble(lineaExistente[4]);
+                double nuevoPrecioTotal = nuevaCantidad * precioExistente;
+
+                String lineaPedidoNueva;
+                lineaPedidoNueva = lineaExistente[0] + ";" + lineaExistente[1] + ";" + lineaExistente[2] + ";"
+                        + Integer.toString(nuevaCantidad) + ";" + lineaExistente[4] + ";" + Double.toString(nuevoPrecioTotal);
+                listaPedido.set(i,lineaPedidoNueva);
+
+                continuar = false;
+
+            }
+
+        }
+
+        if(continuar == true){
+            listaPedido.add(p);
+        }
     }
 
     public void lanzarActividadBebidas(){
@@ -229,7 +270,6 @@ public class activity_2_tipo extends AppCompatActivity{
     }
 
     public void onClickCarrito(View view){
-        String resumenCompra;
         Intent intent = new Intent(this, activity_carrito.class);
         intent.putStringArrayListExtra("listaPedido", listaPedido);
         startActivity(intent);
