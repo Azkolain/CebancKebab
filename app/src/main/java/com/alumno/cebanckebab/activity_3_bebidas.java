@@ -7,12 +7,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by adminportatil on 18/12/2016.
  */
 
 public class activity_3_bebidas extends AppCompatActivity{
+
+    private ArrayList<String> listaPedido;
     private String[] informacionUsuario;
 
     private TextView tCantidadCocaCola;
@@ -31,6 +36,7 @@ public class activity_3_bebidas extends AppCompatActivity{
 
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
+        listaPedido = getIntent().getStringArrayListExtra("listaPedido");
 
         tCantidadCocaCola = (TextView) findViewById(R.id.textCantidadCocaCola);
         tCantidadKasLimon = (TextView) findViewById(R.id.textCantidadKasLimon);
@@ -41,31 +47,61 @@ public class activity_3_bebidas extends AppCompatActivity{
     }
 
     public void onClickSalir(View view) {
-        finish();
+
+        lanzarActividadTipo();
     }
 
     public void onClickSiguiente(View view){
+
         lanzarActividadResumen();
     }
 
     public void lanzarActividadResumen(){
-        int cantidadCocaCola = Integer.parseInt(tCantidadCocaCola.getText().toString());
-        int cantidadKasLimon = Integer.parseInt(tCantidadKasLimon.getText().toString());
-        int cantidadKasNaranja = Integer.parseInt(tCantidadKasNaranja.getText().toString());
-        int cantidadNestea = Integer.parseInt(tCantidadNestea.getText().toString());
-        int cantidadCerveza = Integer.parseInt(tCantidadCerveza.getText().toString());
-        int cantidadAgua = Integer.parseInt(tCantidadAgua.getText().toString());
+        //int cantidadCocaCola = Integer.parseInt(tCantidadCocaCola.getText().toString());
+        //int cantidadKasLimon = Integer.parseInt(tCantidadKasLimon.getText().toString());
+        //int cantidadKasNaranja = Integer.parseInt(tCantidadKasNaranja.getText().toString());
+        //int cantidadNestea = Integer.parseInt(tCantidadNestea.getText().toString());
+        //int cantidadCerveza = Integer.parseInt(tCantidadCerveza.getText().toString());
+        //int cantidadAgua = Integer.parseInt(tCantidadAgua.getText().toString());
 
-        int[] cantidadesBebidas = {cantidadCocaCola, cantidadKasLimon, cantidadKasNaranja,
-                                    cantidadNestea, cantidadCerveza, cantidadAgua};
+        //int[] cantidadesBebidas = {cantidadCocaCola, cantidadKasLimon, cantidadKasNaranja,
+         //                           cantidadNestea, cantidadCerveza, cantidadAgua};
 
         Intent intent = new Intent(this, activity_4_resumen.class);
 
         intent.putExtra("informacionUsuario", informacionUsuario);
+        intent.putStringArrayListExtra("listaPedido", listaPedido);
 
 
         startActivity(intent);
         finish();
+    }
+
+    public void lanzarActividadTipo(){
+
+        Intent intent = new Intent(this, activity_2_tipo.class);
+        intent.putExtra("informacionUsuario", informacionUsuario);
+        intent.putStringArrayListExtra("listaPedido", listaPedido);
+
+        startActivity(intent);
+        finish();
+
+    }
+
+    public void onClickCarrito(View view){
+
+        if(listaPedido.isEmpty()){
+            Toast toastCarrito = Toast.makeText(getApplicationContext(),
+                    "¡No hay nada que mostrar!", Toast.LENGTH_SHORT);
+            toastCarrito.show();
+        }else{
+            Intent intent = new Intent(this, activity_carrito.class);
+            intent.putStringArrayListExtra("listaPedido", listaPedido);
+            startActivity(intent);
+        }
+
+
+
     }
 
     public int sumar(String c){
@@ -92,8 +128,8 @@ public class activity_3_bebidas extends AppCompatActivity{
     }
 
     public void onClickMasCocaCola(View view){
-        String cantidadCadena = tCantidadCocaCola.getText().toString();
-        tCantidadCocaCola.setText(Integer.toString(sumar(cantidadCadena)));
+            String cantidadCadena = tCantidadCocaCola.getText().toString();
+            tCantidadCocaCola.setText(Integer.toString(sumar(cantidadCadena)));
     }
 
     public void onClickMasKasLimon(View view){

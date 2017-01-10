@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     android:background="@color/colorWhite"
     tools:context="com.alumno.cebanckebab.CebancKebabMainActivity">
 
@@ -18,7 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
 
         <LinearLayout
             android:id="@+id/layoutBebida"
@@ -26,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.3"
             android:orientation="horizontal"
-            android:layout_marginBottom="16sp">
+            >
 
             <LinearLayout
                 android:id="@+id/layoutNombreBebida"
@@ -100,51 +101,64 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
+
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textCantidadCocaCola"
                     android:text="0"
                     android:gravity="center"
+                    android:inputType="number"
+                    android:ems="10"
                     android:layout_weight="1"/>
 
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textCantidadKasLimon"
                     android:text="0"
+                    android:inputType="number"
+                    android:ems="10"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textCantidadKasNaranja"
                     android:text="0"
+                    android:inputType="number"
+                    android:ems="10"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textCantidadNestea"
                     android:text="0"
                     android:gravity="center"
+                    android:inputType="number"
+                    android:ems="10"
                     android:layout_weight="1"/>
 
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textCantidadCerveza"
+                    android:inputType="number"
+                    android:ems="10"
                     android:text="0"
                     android:gravity="center"
                     android:layout_weight="1"/>
 
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textCantidadAgua"
                     android:text="0"
+                    android:inputType="number"
+                    android:ems="10"
                     android:gravity="center"
                     android:layout_weight="1"/>
             </LinearLayout>
@@ -264,6 +278,32 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="horizontal"
+            android:id="@+id/layoutCantidad">
+
+            <TextView
+                android:id="@+id/textC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text=""
+                android:gravity="center"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/buttonAñadir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:onClick="onClickAnadir"
+                android:src="@drawable/icono_add_to_cart"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -272,7 +312,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="8">
+        android:background="@color/actionbar_background"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:layout_weight="6">
 
         <ImageView
             android:id="@+id/buttonSalir"
@@ -287,7 +330,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/icono_carrito" />
+            android:src="@drawable/icono_carrito"
+            android:onClick="onClickCarrito"/>
 
 
         <ImageView
@@ -295,7 +339,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/icono_flecha_derecha"
+            android:src="@drawable/icono_flecha_derecha2"
             android:onClick="onClickSiguiente"/>
 
     </LinearLayout>

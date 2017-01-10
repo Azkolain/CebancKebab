@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="250sp"
+
+    android:layout_gravity="center"
+
+    android:paddingTop="20sp"
+    android:paddingBottom="20sp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:paddingLeft="20sp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imagenPeluche"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/imagen_peluche_android"/>
+
+        <ImageView
+            android:id="@+id/imagenValeComida"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/imagen_vale_comida"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorWhite"
+        android:paddingRight="20sp">
+
+
+        <TextView
+            android:text="¡Te regalamos un peluche al superar los 23€ en tu compra, y también una comida en el restaurante de Cebanc al superar los 33€!"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textComida"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

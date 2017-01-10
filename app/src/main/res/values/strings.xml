@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">Cebanc Kebab</string>
-    <string name="app_name_datos">Introduce tus datos</string>
+    <string name="app_name_datos">¡Bienvenido!</string>
     <string name="app_name_tipo">Haga su pedido</string>
     <string name="app_name_bebidas">Escoja la bebida</string>
     <string name="app_name_resumen">Resumen del pedido</string>
+    <string name="app_name_regalos">Info regalos</string>
 
     <string name="textTitulo">CEBANC KEBAB</string>
-    <string name="textContacto">666666666</string>
+    <string name="textContacto">¡Contáctanos!</string>
     <string name="buttonIniciar">Iniciar</string>
 
     <string name="textBienvenido">¡Bienvenido!</string>

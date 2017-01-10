@@ -1,13 +1,12 @@
 package com.alumno.cebanckebab;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
 
 /**
  * Created by adminportatil on 09/01/2017.

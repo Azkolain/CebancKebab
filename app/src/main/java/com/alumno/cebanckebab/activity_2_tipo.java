@@ -1,7 +1,5 @@
 package com.alumno.cebanckebab;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 /**
@@ -26,12 +22,10 @@ import java.util.ArrayList;
 public class activity_2_tipo extends AppCompatActivity{
 
     private ArrayList<String> listaPedido;
+    private String[] informacionUsuario;
 
     private ViewFlipper TruitonFlipper;
     private float initialX;
-
-    private String[] informacionUsuario;
-    private String[][] pedidoProductos = new String[6][5];
 
     private Spinner sTamaino;
     private Spinner sTipo;
@@ -48,6 +42,7 @@ public class activity_2_tipo extends AppCompatActivity{
 
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
+        listaPedido = getIntent().getStringArrayListExtra("listaPedido");
 
         TruitonFlipper = (ViewFlipper) findViewById(R.id.flipper);
         TruitonFlipper.setInAnimation(this, android.R.anim.fade_in);
@@ -57,7 +52,7 @@ public class activity_2_tipo extends AppCompatActivity{
         sTipo = (Spinner) findViewById(R.id.spinnerTipo);
         tCantidadProducto = (TextView) findViewById(R.id.editCantidadProducto);
 
-        listaPedido = new ArrayList<String>();
+
 
     }
 
@@ -93,15 +88,7 @@ public class activity_2_tipo extends AppCompatActivity{
         return false;
     }
 
-    public void onClickSalir(View view) {
 
-        finish();
-    }
-
-    public void onClickSiguiente(View view){
-
-        lanzarActividadBebidas();
-    }
 
     public double establecerPrecio(int p, int c, int t){
         double precio;
@@ -264,17 +251,42 @@ public class activity_2_tipo extends AppCompatActivity{
 
         Intent intent = new Intent(this, activity_3_bebidas.class);
         intent.putExtra("informacionUsuario", informacionUsuario);
+        intent.putStringArrayListExtra("listaPedido", listaPedido);
 
         startActivity(intent);
         finish();
     }
 
-    public void onClickCarrito(View view){
-        Intent intent = new Intent(this, activity_carrito.class);
-        intent.putStringArrayListExtra("listaPedido", listaPedido);
+    public void lanzarActividadDatos(){
+        Intent intent = new Intent(this, activity_1_datos.class);
         startActivity(intent);
+        finish();
+    }
+
+    public void onClickCarrito(View view){
+
+        if(listaPedido.isEmpty()){
+            Toast toastCarrito = Toast.makeText(getApplicationContext(),
+                    "¡No hay nada que mostrar!", Toast.LENGTH_SHORT);
+            toastCarrito.show();
+        }else{
+            Intent intent = new Intent(this, activity_carrito.class);
+            intent.putStringArrayListExtra("listaPedido", listaPedido);
+            startActivity(intent);
+        }
 
 
+
+    }
+
+    public void onClickSalir(View view) {
+
+        lanzarActividadDatos();
+    }
+
+    public void onClickSiguiente(View view){
+
+        lanzarActividadBebidas();
     }
 
 
