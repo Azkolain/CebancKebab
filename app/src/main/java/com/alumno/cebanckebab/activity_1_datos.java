@@ -17,8 +17,11 @@ import java.util.ArrayList;
  */
 
 public class activity_1_datos extends AppCompatActivity {
-    private ArrayList<String> listaPedido;
+
     private String[] informacionUsuario;
+    private ArrayList<String> listaPedido;
+    private String[] arrayBebidas;
+
 
     EditText eNombre;
     EditText eDireccion;
@@ -39,6 +42,7 @@ public class activity_1_datos extends AppCompatActivity {
 
         informacionUsuario = new String[3];
         listaPedido = new ArrayList<String>();
+        arrayBebidas = new String[6];
 
     }
 
@@ -76,6 +80,7 @@ public class activity_1_datos extends AppCompatActivity {
 
         Intent intent = new Intent(this, activity_2_tipo.class);
         intent.putExtra("informacionUsuario", informacionUsuario);
+        intent.putExtra("arrayBebidas", arrayBebidas);
         intent.putStringArrayListExtra("listaPedido", listaPedido);
 
         startActivity(intent);

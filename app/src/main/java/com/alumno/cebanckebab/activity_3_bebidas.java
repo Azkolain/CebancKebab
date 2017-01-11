@@ -17,8 +17,9 @@ import java.util.ArrayList;
 
 public class activity_3_bebidas extends AppCompatActivity{
 
-    private ArrayList<String> listaPedido;
     private String[] informacionUsuario;
+    private ArrayList<String> listaPedido;
+    private String[] arrayBebidas;
 
     private TextView tCantidadCocaCola;
     private TextView tCantidadKasLimon;
@@ -37,6 +38,7 @@ public class activity_3_bebidas extends AppCompatActivity{
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
         listaPedido = getIntent().getStringArrayListExtra("listaPedido");
+        arrayBebidas = extras.getStringArray("arrayBebidas");
 
         tCantidadCocaCola = (TextView) findViewById(R.id.textCantidadCocaCola);
         tCantidadKasLimon = (TextView) findViewById(R.id.textCantidadKasLimon);
@@ -57,20 +59,12 @@ public class activity_3_bebidas extends AppCompatActivity{
     }
 
     public void lanzarActividadResumen(){
-        //int cantidadCocaCola = Integer.parseInt(tCantidadCocaCola.getText().toString());
-        //int cantidadKasLimon = Integer.parseInt(tCantidadKasLimon.getText().toString());
-        //int cantidadKasNaranja = Integer.parseInt(tCantidadKasNaranja.getText().toString());
-        //int cantidadNestea = Integer.parseInt(tCantidadNestea.getText().toString());
-        //int cantidadCerveza = Integer.parseInt(tCantidadCerveza.getText().toString());
-        //int cantidadAgua = Integer.parseInt(tCantidadAgua.getText().toString());
-
-        //int[] cantidadesBebidas = {cantidadCocaCola, cantidadKasLimon, cantidadKasNaranja,
-         //                           cantidadNestea, cantidadCerveza, cantidadAgua};
 
         Intent intent = new Intent(this, activity_4_resumen.class);
 
         intent.putExtra("informacionUsuario", informacionUsuario);
         intent.putStringArrayListExtra("listaPedido", listaPedido);
+        intent.putExtra("arrayBebidas", arrayBebidas);
 
 
         startActivity(intent);
@@ -82,6 +76,7 @@ public class activity_3_bebidas extends AppCompatActivity{
         Intent intent = new Intent(this, activity_2_tipo.class);
         intent.putExtra("informacionUsuario", informacionUsuario);
         intent.putStringArrayListExtra("listaPedido", listaPedido);
+        intent.putExtra("arrayBebidas", arrayBebidas);
 
         startActivity(intent);
         finish();
@@ -99,6 +94,80 @@ public class activity_3_bebidas extends AppCompatActivity{
             intent.putStringArrayListExtra("listaPedido", listaPedido);
             startActivity(intent);
         }
+
+
+
+    }
+
+    public void rellenarArrayBebidas(){
+        arrayBebidas[0] = tCantidadCocaCola.getText().toString();
+        arrayBebidas[1] = tCantidadKasLimon.getText().toString();
+        arrayBebidas[2] = tCantidadKasNaranja.getText().toString();
+        arrayBebidas[3] = tCantidadNestea.getText().toString();
+        arrayBebidas[4] = tCantidadCerveza.getText().toString();
+        arrayBebidas[5] = tCantidadAgua.getText().toString();
+    }
+
+    public void reiniciarCantidades(){
+        tCantidadCocaCola.setText("0");
+        tCantidadKasLimon.setText("0");
+        tCantidadKasNaranja.setText("0");
+        tCantidadNestea.setText("0");
+        tCantidadCerveza.setText("0");
+        tCantidadAgua.setText("0");
+    }
+
+    public void corregirCeros(){
+        if(tCantidadCocaCola.length()==0) {
+            tCantidadCocaCola.setText("0");
+        }
+        if(tCantidadKasLimon.length()==0) {
+            tCantidadKasLimon.setText("0");
+        }
+        if(tCantidadKasNaranja.length()==0) {
+            tCantidadKasNaranja.setText("0");
+        }
+        if(tCantidadNestea.length()==0) {
+            tCantidadNestea.setText("0");
+        }
+        if(tCantidadCerveza.length()==0) {
+            tCantidadCerveza.setText("0");
+        }
+        if(tCantidadAgua.length()==0){
+            tCantidadAgua.setText("0");
+        }
+
+    }
+
+    public boolean sumarArrayBebidas(){
+        int suma = 0;
+        for(int i = 0; i < arrayBebidas.length; i++){
+            suma = suma + Integer.parseInt(arrayBebidas[i]);
+        }
+        if(suma == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public void onClickAnadir(View view){
+        corregirCeros();
+        rellenarArrayBebidas();
+
+        if(sumarArrayBebidas()){
+            reiniciarCantidades();
+
+            Toast toastBebidasExito = Toast.makeText(getApplicationContext(),
+                    "¡Bebidas añadidas correctamente!", Toast.LENGTH_SHORT);
+            toastBebidasExito.show();
+        }else{
+            Toast toastBebidas = Toast.makeText(getApplicationContext(),
+                    "¡No has elegido nada!", Toast.LENGTH_SHORT);
+            toastBebidas.show();
+        }
+
+
+
 
 
 

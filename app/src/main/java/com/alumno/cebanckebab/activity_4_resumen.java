@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class activity_4_resumen extends AppCompatActivity{
     private ArrayList<String> listaPedido;
     private String[] informacionUsuario;
+    private String[] arrayBebidas;
     private String resumen;
 
     private TextView tResumen;
@@ -41,6 +42,7 @@ public class activity_4_resumen extends AppCompatActivity{
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
         listaPedido = getIntent().getStringArrayListExtra("listaPedido");
+        arrayBebidas = extras.getStringArray("arrayBebidas");
 
         tResumen = (TextView) findViewById(R.id.textResumen);
 
@@ -90,6 +92,7 @@ public class activity_4_resumen extends AppCompatActivity{
         Intent intent = new Intent(this, activity_3_bebidas.class);
 
         intent.putExtra("informacionUsuario", informacionUsuario);
+        intent.putExtra("arrayBebidas", arrayBebidas);
         intent.putStringArrayListExtra("listaPedido", listaPedido);
 
         startActivity(intent);

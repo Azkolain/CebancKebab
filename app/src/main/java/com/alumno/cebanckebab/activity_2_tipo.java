@@ -21,8 +21,9 @@ import java.util.ArrayList;
 
 public class activity_2_tipo extends AppCompatActivity{
 
-    private ArrayList<String> listaPedido;
     private String[] informacionUsuario;
+    private ArrayList<String> listaPedido;
+    private String[] arrayBebidas;
 
     private ViewFlipper TruitonFlipper;
     private float initialX;
@@ -43,6 +44,7 @@ public class activity_2_tipo extends AppCompatActivity{
         Bundle extras = getIntent().getExtras();
         informacionUsuario = extras.getStringArray("informacionUsuario");
         listaPedido = getIntent().getStringArrayListExtra("listaPedido");
+        arrayBebidas = extras.getStringArray("arrayBebidas");
 
         TruitonFlipper = (ViewFlipper) findViewById(R.id.flipper);
         TruitonFlipper.setInAnimation(this, android.R.anim.fade_in);
@@ -252,6 +254,7 @@ public class activity_2_tipo extends AppCompatActivity{
         Intent intent = new Intent(this, activity_3_bebidas.class);
         intent.putExtra("informacionUsuario", informacionUsuario);
         intent.putStringArrayListExtra("listaPedido", listaPedido);
+        intent.putExtra("arrayBebidas", arrayBebidas);
 
         startActivity(intent);
         finish();
