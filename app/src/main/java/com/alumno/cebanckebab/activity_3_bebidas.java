@@ -55,7 +55,15 @@ public class activity_3_bebidas extends AppCompatActivity{
 
     public void onClickSiguiente(View view){
 
-        lanzarActividadResumen();
+        if(listaPedido.isEmpty() && sumarArray() == 0){
+            Toast toastPedidoVacio = Toast.makeText(getApplicationContext(),
+                    R.string.toastPedidoVacio, Toast.LENGTH_SHORT);
+            toastPedidoVacio.show();
+        }else{
+            lanzarActividadResumen();
+        }
+
+
     }
 
     public void lanzarActividadResumen(){
@@ -85,13 +93,14 @@ public class activity_3_bebidas extends AppCompatActivity{
 
     public void onClickCarrito(View view){
 
-        if(listaPedido.isEmpty()){
+        if(listaPedido.isEmpty() && sumarArray() == 0){
             Toast toastCarrito = Toast.makeText(getApplicationContext(),
-                    "¡No hay nada que mostrar!", Toast.LENGTH_SHORT);
+                    R.string.toastCarrito, Toast.LENGTH_SHORT);
             toastCarrito.show();
         }else{
             Intent intent = new Intent(this, activity_carrito.class);
             intent.putStringArrayListExtra("listaPedido", listaPedido);
+            intent.putExtra("arrayBebidas", arrayBebidas);
             startActivity(intent);
         }
 
@@ -100,12 +109,12 @@ public class activity_3_bebidas extends AppCompatActivity{
     }
 
     public void rellenarArrayBebidas(){
-        arrayBebidas[0] = tCantidadCocaCola.getText().toString();
-        arrayBebidas[1] = tCantidadKasLimon.getText().toString();
-        arrayBebidas[2] = tCantidadKasNaranja.getText().toString();
-        arrayBebidas[3] = tCantidadNestea.getText().toString();
-        arrayBebidas[4] = tCantidadCerveza.getText().toString();
-        arrayBebidas[5] = tCantidadAgua.getText().toString();
+        arrayBebidas[0] = Integer.toString(Integer.parseInt(arrayBebidas[0]) + Integer.parseInt(tCantidadCocaCola.getText().toString()));
+        arrayBebidas[1] = Integer.toString(Integer.parseInt(arrayBebidas[1]) + Integer.parseInt(tCantidadKasLimon.getText().toString()));
+        arrayBebidas[2] = Integer.toString(Integer.parseInt(arrayBebidas[2]) + Integer.parseInt(tCantidadKasNaranja.getText().toString()));
+        arrayBebidas[3] = Integer.toString(Integer.parseInt(arrayBebidas[3]) + Integer.parseInt(tCantidadNestea.getText().toString()));
+        arrayBebidas[4] = Integer.toString(Integer.parseInt(arrayBebidas[4]) + Integer.parseInt(tCantidadCerveza.getText().toString()));
+        arrayBebidas[5] = Integer.toString(Integer.parseInt(arrayBebidas[5]) + Integer.parseInt(tCantidadAgua.getText().toString()));
     }
 
     public void reiniciarCantidades(){
@@ -140,15 +149,31 @@ public class activity_3_bebidas extends AppCompatActivity{
     }
 
     public boolean sumarArrayBebidas(){
+        int[] sumaArray = new int[6];
         int suma = 0;
-        for(int i = 0; i < arrayBebidas.length; i++){
-            suma = suma + Integer.parseInt(arrayBebidas[i]);
+        sumaArray[0] = Integer.parseInt(tCantidadCocaCola.getText().toString());
+        sumaArray[1] = Integer.parseInt(tCantidadKasLimon.getText().toString());
+        sumaArray[2] = Integer.parseInt(tCantidadKasNaranja.getText().toString());
+        sumaArray[3] = Integer.parseInt(tCantidadNestea.getText().toString());
+        sumaArray[4] = Integer.parseInt(tCantidadCerveza.getText().toString());
+        sumaArray[5] = Integer.parseInt(tCantidadAgua.getText().toString());
+
+        for (int i = 0; i < sumaArray.length; i++){
+            suma = suma + sumaArray[i];
         }
         if(suma == 0){
             return false;
         }else{
             return true;
         }
+    }
+
+    public int sumarArray(){
+        int suma=0;
+        for(int i = 0; i < arrayBebidas.length; i++){
+            suma = suma + Integer.parseInt(arrayBebidas[i]);
+        }
+        return suma;
     }
     public void onClickAnadir(View view){
         corregirCeros();
@@ -158,20 +183,13 @@ public class activity_3_bebidas extends AppCompatActivity{
             reiniciarCantidades();
 
             Toast toastBebidasExito = Toast.makeText(getApplicationContext(),
-                    "¡Bebidas añadidas correctamente!", Toast.LENGTH_SHORT);
+                    R.string.toastBebidasAnadidas, Toast.LENGTH_SHORT);
             toastBebidasExito.show();
         }else{
             Toast toastBebidas = Toast.makeText(getApplicationContext(),
-                    "¡No has elegido nada!", Toast.LENGTH_SHORT);
+                    R.string.toastPedidoVacio, Toast.LENGTH_SHORT);
             toastBebidas.show();
         }
-
-
-
-
-
-
     }
-
 
 }

@@ -1,5 +1,7 @@
 package com.alumno.cebanckebab;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -20,7 +22,7 @@ public class activity_4_resumen extends AppCompatActivity{
     private ArrayList<String> listaPedido;
     private String[] informacionUsuario;
     private String[] arrayBebidas;
-    private String resumen;
+    private String resumen = "";
 
     private TextView tResumen;
 
@@ -28,7 +30,7 @@ public class activity_4_resumen extends AppCompatActivity{
     private CheckBox cComida;
 
     private double precioPedido = 0;
-    private double precioBebida = 0;
+    private double precioBebidas = 0;
     private double precioTotal;
 
 
@@ -51,20 +53,45 @@ public class activity_4_resumen extends AppCompatActivity{
         cPeluche.setChecked(false);
         cComida.setChecked(false);
 
-        resumen = escribeResumen();
-        tResumen.setText(resumen);
-
+        escribirResumenFinal();
         establecerRegalos();
 
 
     }
 
+    public void escribirResumenFinal(){
+        resumen = escribeCliente();
+
+        if(!listaPedido.isEmpty()){
+            resumen = resumen + escribePedido();
+        }
+
+        if(sumarArray()==0){
+            //no hacemos nada
+        }else{
+            resumen = resumen + escribeBebidas();
+        }
+
+        precioTotal = precioPedido + precioBebidas;
+
+        resumen = resumen + "Precio total: " + Double.toString(precioTotal) + "€";
+
+        tResumen.setText(resumen);
+    }
+
+    public String escribeCliente(){
+        String mensaje;
+        mensaje = informacionUsuario[0] + "\n" + informacionUsuario[1]
+                + "\n" + informacionUsuario[2] + "\n\n";
+        return mensaje;
+    }
+
     public void establecerRegalos(){
-        if(precioPedido>33){
+        if(precioTotal>33){
             cPeluche.setChecked(true);
             cComida.setChecked(true);
         }else{
-            if(precioPedido>23){
+            if(precioTotal>23){
                 cPeluche.setChecked(true);
                 cComida.setChecked(false);
             }else{
@@ -74,10 +101,49 @@ public class activity_4_resumen extends AppCompatActivity{
         }
     }
 
+
+    public void alertaPedidoRealizado(){
+
+            AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+            dialogo1.setTitle("Cebanc Kebab");
+            dialogo1.setMessage("¡Muchas gracias por tu compra, vuelve cuando quieras!");
+            dialogo1.setCancelable(false);
+            dialogo1.setPositiveButton("¡Hasta otra!", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    finish();
+                }
+            });
+
+            dialogo1.show();
+    }
+    public void alertaTerminar() {
+
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Cebanc Kebab");
+        dialogo1.setMessage("¿Desea realizar el pedido?");
+        dialogo1.setCancelable(false);
+        dialogo1.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                alertaPedidoRealizado();
+            }
+        });
+        dialogo1.setNegativeButton("Aún no", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+
+            }
+        });
+        dialogo1.show();
+
+    }
     public void onClickRegalo(View view){
         lanzarActividadRegalo();
     }
 
+    public void onClickTerminar(View view){
+
+        alertaTerminar();
+
+    }
     public void onClickSalir(View view) {
 
         lanzarActividadBebidas();
@@ -99,10 +165,88 @@ public class activity_4_resumen extends AppCompatActivity{
         finish();
     }
 
+    public String escribeBebidas(){
+        String resumenBeb="Bebidas:\n\n";
+
+        for(int i = 0; i < arrayBebidas.length; i ++){
+            if(Integer.parseInt(arrayBebidas[i])>0){
+                String nombreBebida = comprobarBebida(i);
+                Double precioCadaBebida = comprobarPrecioBebida(i);
+                int cantidad = Integer.parseInt(arrayBebidas[i]);
+                Double precioTotalBebida = precioCadaBebida * cantidad;
+
+                precioBebidas = precioBebidas + precioTotalBebida;
+
+                resumenBeb = resumenBeb + Integer.toString(cantidad) + " x "+ nombreBebida + "\n("
+                        +  Double.toString(precioCadaBebida) + " € x "
+                        + Integer.toString(cantidad) + " = " + Double.toString(precioTotalBebida) + "€)\n\n";
+            }
+        }
 
 
-    public String escribeResumen(){
-        String resumen="";
+        return resumenBeb;
+
+    }
+
+    public Double comprobarPrecioBebida(int indice){
+        Double precio = 0.0;
+        if(indice == 0){
+            precio = 1.50;
+        }else{
+            if(indice == 1){
+                precio = 1.50;
+            }else{
+                if(indice == 2){
+                    precio = 1.50;
+                }else{
+                    if(indice == 3){
+                        precio = 1.50;
+                    }else{
+                        if(indice == 4){
+                            precio = 2.0;
+                        }else{
+                            if(indice == 5){
+                                precio = 0.70;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return precio;
+    }
+
+    public String comprobarBebida(int indice){
+        String nombreBebida = "";
+        if(indice == 0){
+            nombreBebida = "Coca Cola 33cl";
+        }else{
+            if(indice == 1){
+                nombreBebida = "Fanta Limón 33cl";
+            }else{
+                if(indice == 2){
+                    nombreBebida = "Fanta Naranja 33cl";
+                }else{
+                    if(indice == 3){
+                        nombreBebida = "Nestea 33cl";
+                    }else{
+                        if(indice == 4){
+                            nombreBebida = "Heineken 33cl";
+                        }else{
+                            if(indice == 5){
+                                nombreBebida = "Agua 50cl";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return nombreBebida;
+    }
+
+
+    public String escribePedido(){
+        String resumen="Pedido:\n\n";
 
         for(int i=0;i<listaPedido.size();i++){
             String linea;
@@ -131,8 +275,6 @@ public class activity_4_resumen extends AppCompatActivity{
 
 
         }
-
-        resumen = resumen + "Precio total: " + precioPedido + "€";
 
         Log.e("loco", resumen);
         return resumen;
@@ -183,5 +325,13 @@ public class activity_4_resumen extends AppCompatActivity{
             tipoTamaino = "sólo carne";
         }
         return tipoTamaino;
+    }
+
+    public int sumarArray(){
+        int suma=0;
+        for(int i = 0; i < arrayBebidas.length; i++){
+            suma = suma + Integer.parseInt(arrayBebidas[i]);
+        }
+        return suma;
     }
 }

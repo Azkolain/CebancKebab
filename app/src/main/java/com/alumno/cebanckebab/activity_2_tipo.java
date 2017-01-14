@@ -1,11 +1,12 @@
 package com.alumno.cebanckebab;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Spinner;
@@ -168,10 +169,16 @@ public class activity_2_tipo extends AppCompatActivity{
         return tipoTamaino;
     }
 
+    public void corregirCeros() {
+        if (tCantidadProducto.length() == 0) {
+            tCantidadProducto.setText("0");
+        }
+    }
     public void onClickAnadir(View view){
-        if(tCantidadProducto.getText().toString().equals("0") || tCantidadProducto.getText().toString().equals("")){
+        corregirCeros();
+        if(tCantidadProducto.getText().toString().equals("0")){
             Toast toastCantidad = Toast.makeText(getApplicationContext(),
-                            "¡Debes introducir una cantidad!", Toast.LENGTH_SHORT);
+                            R.string.toastPedidoVacio, Toast.LENGTH_SHORT);
             toastCantidad.show();
         }else{
             anadirProducto();
@@ -202,9 +209,7 @@ public class activity_2_tipo extends AppCompatActivity{
 
         pedidoSimilar(lineaPedido);
 
-
-
-        Log.d("loko", listaPedido.get(0));
+        reiniciarCantidad();
 
         Toast toast1 =
                 Toast.makeText(getApplicationContext(),
@@ -212,6 +217,11 @@ public class activity_2_tipo extends AppCompatActivity{
                                 + " (" + precioTotal + "€) ", Toast.LENGTH_SHORT);
 
         toast1.show();
+    }
+
+
+    public void reiniciarCantidad(){
+        tCantidadProducto.setText("0");
     }
 
     public void pedidoSimilar(String p){
@@ -266,15 +276,24 @@ public class activity_2_tipo extends AppCompatActivity{
         finish();
     }
 
+    public int sumarArray(){
+        int suma=0;
+        for(int i = 0; i < arrayBebidas.length; i++){
+            suma = suma + Integer.parseInt(arrayBebidas[i]);
+        }
+        return suma;
+    }
+
     public void onClickCarrito(View view){
 
-        if(listaPedido.isEmpty()){
+        if(listaPedido.isEmpty() && sumarArray()==0){
             Toast toastCarrito = Toast.makeText(getApplicationContext(),
-                    "¡No hay nada que mostrar!", Toast.LENGTH_SHORT);
+                    R.string.toastCarrito, Toast.LENGTH_SHORT);
             toastCarrito.show();
         }else{
             Intent intent = new Intent(this, activity_carrito.class);
             intent.putStringArrayListExtra("listaPedido", listaPedido);
+            intent.putExtra("arrayBebidas", arrayBebidas);
             startActivity(intent);
         }
 
@@ -284,13 +303,36 @@ public class activity_2_tipo extends AppCompatActivity{
 
     public void onClickSalir(View view) {
 
-        lanzarActividadDatos();
+        alertaSalir();
+
     }
 
     public void onClickSiguiente(View view){
 
         lanzarActividadBebidas();
     }
+
+    public void alertaSalir() {
+
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Cebanc Kebab");
+        dialogo1.setMessage("¿Seguro que quieres volver atrás? ¡Perderás tu pedido!");
+        dialogo1.setCancelable(false);
+
+        dialogo1.setPositiveButton("Atrás", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                lanzarActividadDatos();
+            }
+        });
+        dialogo1.setNegativeButton("Continuar con la compra", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+
+            }
+        });
+        dialogo1.show();
+
+    }
+
 
 
 

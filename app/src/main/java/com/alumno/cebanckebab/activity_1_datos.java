@@ -1,5 +1,7 @@
 package com.alumno.cebanckebab;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -43,7 +45,15 @@ public class activity_1_datos extends AppCompatActivity {
         informacionUsuario = new String[3];
         listaPedido = new ArrayList<String>();
         arrayBebidas = new String[6];
+        rellenarArrayBebidasACero();
 
+
+    }
+
+    public void rellenarArrayBebidasACero(){
+        for(int i = 0; i < arrayBebidas.length; i++){
+            arrayBebidas[i] = "0";
+        }
     }
 
     public void onClickSalir(View view) {
@@ -52,15 +62,46 @@ public class activity_1_datos extends AppCompatActivity {
     }
 
     public void onClickSiguiente(View view){
+        String nombre = eNombre.getText().toString();
+        String direccion = eDireccion.getText().toString();
         String telefono = eTelefono.getText().toString();
+        String mensajeValidacion = "";
 
-        if(validarTelefono(telefono)){
-            lanzarActividadTipo();
+        Boolean nombreCorrecto = validarNombre(nombre);
+        Boolean direccionCorrecto = validarDireccion(direccion);
+        Boolean telefonoCorrecto = validarTelefono(telefono);
+
+        if(!nombreCorrecto){
+            mensajeValidacion = mensajeValidacion + "*!El campo 'Nombre' no puede estar vacío!\n";
+        }
+        if(!direccionCorrecto){
+            mensajeValidacion = mensajeValidacion + "*¡El campo 'Dirección' no puede estar vacío!\n";
+        }
+        if(!telefonoCorrecto){
+            mensajeValidacion = mensajeValidacion + "*¡El campo 'Teléfono' debe contener 9 números!\n";
+        }
+
+        if(!nombreCorrecto || !direccionCorrecto || !telefonoCorrecto){
+            alertaValidacion(mensajeValidacion);
         }else{
-            toastTelefono();
+            lanzarActividadTipo();
         }
 
 
+    }
+
+    public void alertaValidacion(String mensajeVal){
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Cebanc Kebab");
+        dialogo1.setMessage(mensajeVal);
+        dialogo1.setCancelable(false);
+        dialogo1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+
+            }
+        });
+
+        dialogo1.show();
     }
 
     public void lanzarActividadMain(){
@@ -87,6 +128,26 @@ public class activity_1_datos extends AppCompatActivity {
         finish();
     }
 
+    public boolean validarNombre(String n) {
+        String nombre = n;
+
+        if(nombre.length()!=0){
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean validarDireccion(String d) {
+        String direccion = d;
+
+        if(direccion.length()!=0){
+            return true;
+        }
+        return false;
+
+    }
+
     public boolean validarTelefono(String t) {
         String telefono = t;
 
@@ -97,11 +158,10 @@ public class activity_1_datos extends AppCompatActivity {
 
     }
 
-    public void toastTelefono(){
-
-        Toast toastEnterNumeric = Toast.makeText(getApplicationContext(),
-                "9 caracteres, sólo números", Toast.LENGTH_SHORT);
-        toastEnterNumeric.show();
+    public void onClickAcercaDe(View view){
+        Toast toastCarrito = Toast.makeText(getApplicationContext(),
+                R.string.toastAcercaDe, Toast.LENGTH_SHORT);
+        toastCarrito.show();
     }
 
 }

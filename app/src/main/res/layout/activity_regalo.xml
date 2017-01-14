@@ -43,7 +43,7 @@
 
 
         <TextView
-            android:text="¡Te regalamos un peluche al superar los 23€ en tu compra, y también una comida en el restaurante de Cebanc al superar los 33€!"
+            android:text="@string/regalo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/textComida"

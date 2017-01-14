@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:textSize="30sp"
-                android:background="@drawable/imagen_intro"
+                android:background="@drawable/image_intro2"
                 android:gravity="center_vertical"/>
 
             <TextView
@@ -38,6 +38,7 @@
                 android:layout_weight="1"
                 android:text="@string/textDatos"
                 android:gravity="center"
+                android:textColor="@color/actionbar_titulo"
                 android:background="@color/actionbar_background"
                 android:textSize="20sp" />
 
@@ -99,6 +100,8 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editNombre"
+                    android:maxLength="30"
+                    android:hint="@string/editNombre"
                     android:layout_weight="1"/>/>
 
                 <EditText
@@ -106,14 +109,18 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
+                    android:maxLength="40"
                     android:id="@+id/editDireccion"
+                    android:hint="@string/editDireccion"
                     android:layout_weight="1"/>
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="phone"
+                    android:inputType="number"
+                    android:maxLength="9"
                     android:ems="10"
+                    android:hint="@string/editNombre"
                     android:id="@+id/editTelefono"
                     android:layout_weight="1"/>
 
@@ -145,6 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="onClickAcercaDe"
             android:src="@drawable/kebab"/>
 
 

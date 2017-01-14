@@ -1,35 +1,70 @@
+<!--App_name-->
+
 <resources>
     <string name="app_name">Cebanc Kebab</string>
     <string name="app_name_datos">¡Bienvenido!</string>
-    <string name="app_name_tipo">Haz tu pedido</string>
-    <string name="app_name_bebidas">Escoge la bebida</string>
+    <string name="app_name_tipo">¡Haz tu pedido!</string>
+    <string name="app_name_bebidas">¡Escoge la bebida!</string>
     <string name="app_name_resumen">Resumen del pedido</string>
     <string name="app_name_regalos">¿Regalos?</string>
 
-    <string name="textTitulo">CEBANC KEBAB</string>
-    <string name="textContacto">¡Contáctanos!</string>
-    <string name="buttonIniciar">Iniciar</string>
+    <!--activity_cebanc_kebab_main.xml-->
 
-    <string name="textBienvenido">¡Bienvenido!</string>
+    <string name="textContacto">¡Contáctanos!</string>
+    <string name="toastAcercaDe">*KebApp desarrollada por Asier Azkolain y Álvaro Limousin*!</string>
+
+    <!--activity_kebab_1_datos.xml-->
+
     <string name="textDatos">Introduce a continuación tus datos</string>
+
     <string name="textNombre">Nombre: </string>
     <string name="textDireccion">Dirección: </string>
     <string name="textTelefono">Teléfono: </string>
-    <string name="buttonSalir">Salir</string>
-    <string name="buttonSiguiente">Siguiente</string>
+
+    <string name="editNombre">ej. Alberto </string>
+    <string name="editDireccion">ej. Larramendi 5c </string>
+    <string name="editTelefono">ej.649649649 </string>
+
+    <string name="toastPedidoVacio">¡No has elegido nada!</string>
+
+
+
+    <!--activity_kebab_2_tipo.xml-->
 
     <string name="textTamaino">Tamaño:</string>
     <string name="textTipoCarne">Carne:</string>
 
-    <string name="textCola">Coca-Cola</string>
-    <string name="textLimon">Kas Limón</string>
-    <string name="textNaranja">Kas Naranja</string>
-    <string name="textNestea">Nestea</string>
-    <string name="textCerveza">Cerveza</string>
-    <string name="textAgua">Agua</string>
+    <string name="doner">DÖNER KEBAB\n\nCarne de pollo, ternera o mixta, lechuga, tomate, cebolla y salsa\n\n\n3,50€</string>
+    <string name="durum">DÜRUM KEBAB\n\nCarne de pollo, ternera o mixta, lechuga, tomate, cebolla y salsa\n\n\n4,50€</string>
+    <string name="lahmacum">LAHMACUM\n\nPizza turca de carne de pollo, ternera o mixta, lechuga, tomate, cebolla y salsa\n\n5,00€"</string>
+    <string name="hamburguesa">HAMBURGUESA\n\nHamburguesa de carne de pollo, ternera o mixta, lechuga, tomate y cebolla\n\n3,00€</string>
+    <string name="pedrata">PEDRATA\n\nPlato de carne de pollo, ternera o mixta, tomate, lechuga, cebolla, patatas y salsa\n\n5,50€</string>
 
-    <string name="buttonAceptar">Aceptar</string>
-    <string name="buttonCancelar">Cancelar</string>
+    <string name="cantidad">Cantidad</string>
+
+    <string name="toastCarrito">¡No hay nada que mostrar!</string>
+
+    <!--activity_kebab_3_bebidas.xml-->
+
+    <string name="precioCocaCola">1,50€</string>
+    <string name="precioKasLimon">1,50€</string>
+    <string name="precioKasNaranja">1,50€</string>
+    <string name="precioNestea">1,50€</string>
+    <string name="precioCerveza">2,00€</string>
+    <string name="precioAgua">0,70€</string>
+
+    <string name="toastBebidasAnadidas">¡Bebidas añadidas correctamente!</string>
+
+    <!--activity_kebab_4_resumen.xml-->
+
+    <string name="peluche">¡Peluche mascota android de regalo!</string>
+    <string name="comida">¡Comida en el restaurante de Cebanc de regalo!</string>
+
+    <!--activity_regalo.xml-->
+
+    <string name="regalo">¡Te regalamos un peluche al superar los 23€ en tu compra, y también una comida en el restaurante de Cebanc al superar los 33€!</string>
+
+
 
 
 </resources>
